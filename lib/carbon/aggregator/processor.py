@@ -33,7 +33,7 @@ class AggregationProcessor(Processor):
           values_buffer.configure_aggregation(rule.frequency, rule.aggregation_func)
 
         values_buffer.input(datapoint)
-    elfif settings.AGGREGATOR_RULE_METHOD == "sumall":
+    elif settings.AGGREGATOR_RULE_METHOD == "sumall":
       sum_index = metric.find(".sum.")
       if sum_index != -1:
         aggregate_metric = metric[:sum_index] + ".sum_all.hosts"
